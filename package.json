@@ -1,0 +1,13 @@
+{
+  "name": "basic-playwright-tests",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/TluwaniMS/basic-playwright-learning.git",
+  "author": "tluwaniMS <tluwani2020@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.43.0",
+    "@types/node": "^20.12.7"
+  },
+  "scripts": {}
+}

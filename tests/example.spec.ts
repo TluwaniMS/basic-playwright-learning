@@ -1,28 +1,35 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, type Page } from '@playwright/test';
+
+test.beforeEach(async ({ page }) => {
+  await page.goto('http://localhost:3002');
+});
 
 test.describe('Inspect the basic node-js web server deployment landing page.', () => {
-  test('Is the web page title as expected?', async ({ page }) => {});
+  test('Is the web page title as expected?', async ({ page }) => {
+    await expect(page).toHaveTitle(/Basic NodeJS Web Server/);
+  });
 
-  test('Has the environment variable user-name been set?', async ({ page }) => {});
+  test('Has the environment variable user-name been set?', async ({ page }) => {
+    // Locate the h1 element with class 'username'
+    const usernameElement = page.locator('h1.username');
 
-  test('Has the environment variable envirronment been set?', async ({ page }) => {});
+    // Check if the element contains the text 'Jumaima'
+    await expect(usernameElement).toHaveText(/Jumaima/);
+  });
 
-  test('Are all our affirmations included?', async ({ page }) => {});
-});
+  test('Has the environment variable environment been set?', async ({ page }) => {
+    // Locate the span within h1 with the class 'environment'
+    const environmentSpan = page.locator('h1 span.environment');
 
-test('has title', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
+    // Check if the span contains the text 'development'
+    await expect(environmentSpan).toHaveText(/development/);
+  });
 
-  // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle(/Playwright/);
-});
+  test('Are all our affirmations included?', async ({ page }) => {
+    // Locate the li within ul that contains the specific text
+    const liWithText = page.locator('ul li', { hasText: 'I trust in my journey and its purpose.' });
 
-test('get started link', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
-
-  // Click the get started link.
-  await page.getByRole('link', { name: 'Get started' }).click();
-
-  // Expects page to have a heading with the name of Installation.
-  await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
+    // Check if the li is found
+    await expect(liWithText).toBeVisible();
+  });
 });

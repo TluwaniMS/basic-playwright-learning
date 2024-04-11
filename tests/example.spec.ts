@@ -1,5 +1,15 @@
 import { test, expect } from '@playwright/test';
 
+test.describe('Inspect the basic node-js web server deployment landing page.', () => {
+  test('Is the web page title as expected?', async ({ page }) => {});
+
+  test('Has the environment variable user-name been set?', async ({ page }) => {});
+
+  test('Has the environment variable envirronment been set?', async ({ page }) => {});
+
+  test('Are all our affirmations included?', async ({ page }) => {});
+});
+
 test('has title', async ({ page }) => {
   await page.goto('https://playwright.dev/');
 

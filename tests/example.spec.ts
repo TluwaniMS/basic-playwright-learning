@@ -1,7 +1,7 @@
 import { test, expect, type Page } from '@playwright/test';
 
 test.beforeEach(async ({ page }) => {
-  await page.goto('http://localhost:3002');
+  await page.goto('http://127.0.0.1:3002');
 });
 
 test.describe('Inspect the basic node-js web server deployment landing page.', () => {

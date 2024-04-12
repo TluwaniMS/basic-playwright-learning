@@ -1,7 +1,15 @@
 import { test, expect } from '@playwright/test';
 
 test.beforeEach(async ({ page }) => {
-  await page.goto('http://127.0.0.1:3002');
+  await page.goto('https://b223-41-150-193-46.ngrok-free.app');
+  const visitSiteButton = await page.getByRole('button', { name: 'Visit Site' });
+
+  if (visitSiteButton) {
+    await visitSiteButton.click();
+    console.log("Clicked the 'Visit Site' button!");
+  } else {
+    console.log("Button 'Visit Site' not found.");
+  }
 });
 
 test.describe('Inspect the basic node-js web server deployment landing page.', () => {

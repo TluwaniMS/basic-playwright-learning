@@ -1,6 +1,8 @@
 import { test, expect } from '@playwright/test';
 
 test.beforeEach(async ({ page }) => {
+  const baseUrl = process.env.BASE_URL || 'http://localhost:3002';
+
   await page.goto('https://b223-41-150-193-46.ngrok-free.app');
   const visitSiteButton = await page.getByRole('button', { name: 'Visit Site' });
 

@@ -14,7 +14,7 @@ test.describe('Inspect the basic node-js web server deployment landing page.', (
     const usernameElement = page.locator('h1.username');
 
     // Check if the element contains the text 'Jumaima'
-    await expect(usernameElement).toHaveText(/Jumaima/);
+    await expect(usernameElement).toHaveText(/Jack/);
   });
 
   test('Has the environment variable environment been set?', async ({ page }) => {

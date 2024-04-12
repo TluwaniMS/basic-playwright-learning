@@ -21,16 +21,18 @@ test.describe('Inspect the basic node-js web server deployment landing page.', (
     // Locate the h1 element with class 'username'
     const usernameElement = page.locator('h1.username');
 
+    const userName = process.env.USER_NAME || 'Jumaima';
     // Check if the element contains the text 'Jumaima'
-    await expect(usernameElement).toHaveText(/Jack/);
+    await expect(usernameElement).toHaveText(new RegExp(userName));
   });
 
   test('Has the environment variable environment been set?', async ({ page }) => {
     // Locate the span within h1 with the class 'environment'
     const environmentSpan = page.locator('h1 span.environment');
 
+    const environment = process.env.ENVIRONMENT || 'local-development';
     // Check if the span contains the text 'development'
-    await expect(environmentSpan).toHaveText(/development/);
+    await expect(environmentSpan).toHaveText(new RegExp(environment));
   });
 
   test('Are all our affirmations included?', async ({ page }) => {

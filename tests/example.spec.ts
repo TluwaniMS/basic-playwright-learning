@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 test.beforeEach(async ({ page }) => {
-  test.setTimeout(120000)
+  test.setTimeout(60000)
   const baseUrl = process.env.BASE_URL || 'http://localhost:3002';
 
   await page.goto(baseUrl);
